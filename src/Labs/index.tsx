@@ -6,6 +6,11 @@ import Lab3 from "./Lab3";
 export default function Labs() {
   return (
     <div id = "wd-labs">
+      <h1>Chenxi Zhao</h1>
+      <h1>2024 summer full</h1>
+      Please
+<a id="wd-github" href="https://github.com/2chenxi/kanbas-react-web-app.git"> click here</a>
+to get my git repository<br/>
       <h1>Labs</h1>
       <TOC />
       <Routes>
