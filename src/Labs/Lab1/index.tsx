@@ -285,9 +285,10 @@ and the label enables selecting the content as the same when selecting the butto
 
 <label htmlFor="wd-text-fields-rating"> Rating: </label>
 <input type="range" id="wd-text-fields-rating"
-      placeholder="Doe"
-      max="5"
-      aria-placeholder="4"/><br/>
+       max="5"
+       aria-label="Rating from 1 to 5"
+/><br/>
+
 
 <label htmlFor="wd-text-fields-dob"> Date of birth: </label>
 <input type="date"
