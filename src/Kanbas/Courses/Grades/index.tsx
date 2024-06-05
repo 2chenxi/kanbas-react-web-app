@@ -67,6 +67,38 @@ export default function Grades() {
           Out of 100
         </div>
       </th>
+      <th scope="col">
+        <div>
+        A5 
+        </div>
+        <div style={{ fontSize: '12px' }}>
+          Out of 100
+        </div>
+      </th>
+      <th scope="col">
+        <div>
+        A6
+        </div>
+        <div style={{ fontSize: '12px' }}>
+          Out of 100
+        </div>
+      </th>
+      <th scope="col">
+        <div>
+        A7
+        </div>
+        <div style={{ fontSize: '12px' }}>
+          Out of 100
+        </div>
+      </th>
+      <th scope="col">
+        <div>
+        A8
+        </div>
+        <div style={{ fontSize: '12px' }}>
+          Out of 100
+        </div>
+      </th>
 
 </tr>
 
@@ -78,9 +110,17 @@ export default function Grades() {
               <td>100%</td>
               <td>100%</td>
               <td>100%</td>
+              <td>100%</td>
+              <td>100%</td>
+              <td>100%</td>
+              <td>100%</td>
             </tr>
             <tr>
               <td className="student-name">Christina Allen</td>
+              <td>100%</td>
+              <td>100%</td>
+              <td>100%</td>
+              <td>100%</td>
               <td>100%</td>
               <td>100%</td>
               <td>100%</td>
@@ -92,9 +132,17 @@ export default function Grades() {
               <td>100%</td>
               <td>100%</td>
               <td>100%</td>
+              <td>100%</td>
+              <td>100%</td>
+              <td>100%</td>
+              <td>100%</td>
             </tr>
             <tr>
               <td className="student-name">Jason Adams</td>
+              <td>100%</td>
+              <td>100%</td>
+              <td>100%</td>
+              <td>100%</td>
               <td>100%</td>
               <td>100%</td>
               <td>100%</td>
