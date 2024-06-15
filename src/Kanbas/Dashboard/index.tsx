@@ -6,9 +6,9 @@ export default function Dashboard() {
         <div id="wd-dashboard-courses"  className="row">
         <div className="row row-cols-1 row-cols-md-5 g-4">
 
-          <div className="wd-dashboard-course col" style={{width:"300px"}}>
+          <div className="wd-dashboard-course col" style={{width:"340px"}}>
           <div className="card">
-            <img src="/images/example.jpg" alt=""/>
+            <img src="/images/example.jpg" alt="" height="300px" width="300px"/>
             <div>
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/1234/Home"
@@ -23,9 +23,9 @@ export default function Dashboard() {
           </div>
           </div>
           <br></br>
-            <div className="wd-dashboard-course col" style={{width:"300px"}}> 
+            <div className="wd-dashboard-course col" style={{width:"340px"}}> 
             <div className="card">
-            <img src="/images/c2.jpg" alt=""/>
+            <img src="/images/c2.jpg" alt="" height="300px" width="300px"/>
                 <div className="card-body">
                 <a className="wd-dashboard-course-link"
                     href="#/Kanbas/Courses/5001/Home"
@@ -40,9 +40,9 @@ export default function Dashboard() {
                 </div>
             </div>
             <br></br>
-            <div className="wd-dashboard-course col" style={{width:"300px"}}> 
+            <div className="wd-dashboard-course col" style={{width:"340px"}}> 
             <div className="card">
-            <img src="/images/c3.jpg" alt=""/>
+            <img src="/images/c3.jpg" alt="" height="300px" width="300px"/>
                 <div className="card-body">
                 <a className="wd-dashboard-course-link"
                     href="#/Kanbas/Courses/5002/Home"
@@ -57,9 +57,9 @@ export default function Dashboard() {
             </div>
             </div>
             <br></br>
-            <div className="wd-dashboard-course col" style={{width:"300px"}}> 
+            <div className="wd-dashboard-course col" style={{width:"340px"}}> 
             <div className="card">
-            <img src="/images/c4.jpg" alt=""/>
+            <img src="/images/c4.jpg" alt="" height="300px" width="300px"/>
                 <div className="card-body">
                 <a className="wd-dashboard-course-link"
                     href="#/Kanbas/Courses/101/Home"
@@ -74,9 +74,9 @@ export default function Dashboard() {
                 </div>
             </div>
             <br></br>
-            <div className="wd-dashboard-course col" style={{width:"300px"}}> 
+            <div className="wd-dashboard-course col" style={{width:"340px"}}> 
             <div className="card">
-            <img src="/images/c5.jpg" alt=""/>
+            <img src="/images/c5.jpg" alt="" height="300px" width="300px"/>
                 <div className="card-body">
                 <a className="wd-dashboard-course-link"
                     href="#/Kanbas/Courses/111/Home"
@@ -91,9 +91,9 @@ export default function Dashboard() {
                 </div>
             </div>
             <br></br>
-            <div className="wd-dashboard-course col" style={{width:"300px"}}> 
+            <div className="wd-dashboard-course col" style={{width:"340px"}}> 
             <div className="card">
-            <img src="/images/c6.jpg" alt=""/>
+            <img src="/images/c6.jpg" alt="" height="300px" width="300px"/>
                 <div className="card-body">
                 <a className="wd-dashboard-course-link"
                     href="#/Kanbas/Courses/789/Home"
@@ -108,9 +108,9 @@ export default function Dashboard() {
                 </div>
             </div>
             <br></br>
-            <div className="wd-dashboard-course col" style={{width:"300px"}}> 
+            <div className="wd-dashboard-course col" style={{width:"340px"}}> 
             <div className="card">
-            <img src="/images/c7.jpg" alt=""/>
+            <img src="/images/c7.jpg" alt="" height="300px" width="300px"/>
                 <div className="card-body">
                 <a className="wd-dashboard-course-link"
                     href="#/Kanbas/Courses/001/Home"
@@ -125,9 +125,9 @@ export default function Dashboard() {
                 </div>
             </div>
             <br></br>
-            <div className="wd-dashboard-course col" style={{width:"300px"}}> 
+            <div className="wd-dashboard-course col" style={{width:"340px"}}> 
             <div className="card">
-            <img src="/images/c8.jpg" alt=""/>
+            <img src="/images/c8.jpg" alt="" height="300px" width="300px"/>
                 <div className="card-body">
                 <a className="wd-dashboard-course-link"
                     href="#/Kanbas/Courses/444/Home"
