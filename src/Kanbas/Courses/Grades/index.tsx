@@ -1,18 +1,30 @@
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import GradesControl from "./GradesControl";
 import { FiFilter } from "react-icons/fi";
+import { useParams } from "react-router";
+import * as db from "../../Database";
 
 export default function Grades() {
-    return(
-        <div className="container">
-            <GradesControl />
+  const { cid: courseID } = useParams();
+  const assignments = db.assignments.filter((assignment) => assignment.course === courseID);
+  const students = db.enrollments.filter((student) => student.course === courseID);
+  const grades = db.grades;
+  const users = db.users;
+
+  console.log("Grades data:", grades);
+  console.log("Assignments data:", assignments);
+  console.log("Students data:", students);
+
+  return (
+    <div className="container">
+      <GradesControl />
       <div className="row mb-3">
         <div className="col-md-6">
           <div className="mb-2">
             <label htmlFor="student-search" className="form-label custom-label">Student Names</label>
           </div>
           <div className="search-bar">
-          <HiMagnifyingGlass className="position-relative me-2 mb-1" style={{ bottom: "1px", fontSize: '24px'}} />
+            <HiMagnifyingGlass className="position-relative me-2 mb-1" style={{ bottom: "1px", fontSize: '24px' }} />
             <input type="text" id="student-search" className="form-control" placeholder="Search Students" />
           </div>
         </div>
@@ -21,136 +33,61 @@ export default function Grades() {
             <label htmlFor="assignment-search" className="form-label custom-label">Assignment Names</label>
           </div>
           <div className="search-bar">
-          <HiMagnifyingGlass className="position-relative me-2 mb-2" style={{ bottom: "1px" , fontSize: '24px'}} />
+            <HiMagnifyingGlass className="position-relative me-2 mb-2" style={{ bottom: "1px", fontSize: '24px' }} />
             <input type="text" id="assignment-search" className="form-control" placeholder="Search Assignments" />
           </div>
         </div>
       </div>
-      <button id="wd-filter-btn" className="btn btn-lg btn-outline-secondary  me-1 mb-1">
-            <FiFilter className="position-relative me-2" style={{ bottom: "1px" , fontSize: '24px', color:"black" }} />
-            Apply filters
-          </button>
-        <div className="table-responsive">
+      <button id="wd-filter-btn" className="btn btn-lg btn-outline-secondary me-1 mb-1">
+        <FiFilter className="position-relative me-2" style={{ bottom: "1px", fontSize: '24px', color: "black" }} />
+        Apply filters
+      </button>
+      <div className="table-responsive">
         <table className="table table-striped">
           <thead>
-          <tr>
-  <th scope="col">Student Name</th>
-  <th scope="col">
-        <div>
-          A1 SETUP
-        </div>
-        <div style={{ fontSize: '12px' }}>
-          Out of 100
-        </div>
-      </th>
-      <th scope="col">
-        <div>
-        A2 HTML
-        </div>
-        <div style={{ fontSize: '12px' }}>
-          Out of 100
-        </div>
-      </th>
-      <th scope="col">
-        <div>
-        A3 CSS
-        </div>
-        <div style={{ fontSize: '12px' }}>
-          Out of 100
-        </div>
-      </th>
-      <th scope="col">
-        <div>
-        A4 BOOTSTRAP 
-        </div>
-        <div style={{ fontSize: '12px' }}>
-          Out of 100
-        </div>
-      </th>
-      <th scope="col">
-        <div>
-        A5 
-        </div>
-        <div style={{ fontSize: '12px' }}>
-          Out of 100
-        </div>
-      </th>
-      <th scope="col">
-        <div>
-        A6
-        </div>
-        <div style={{ fontSize: '12px' }}>
-          Out of 100
-        </div>
-      </th>
-      <th scope="col">
-        <div>
-        A7
-        </div>
-        <div style={{ fontSize: '12px' }}>
-          Out of 100
-        </div>
-      </th>
-      <th scope="col">
-        <div>
-        A8
-        </div>
-        <div style={{ fontSize: '12px' }}>
-          Out of 100
-        </div>
-      </th>
-
-</tr>
-
+            <tr>
+              <th scope="col">Student Name</th>
+              {assignments.length === 0 ? (
+                <th scope="col">No assignments found for this course.</th>
+              ) : (
+                assignments.map((assignment) => (
+                  <th key={assignment._id} scope="col">
+                    <div>
+                      {assignment.title}
+                    </div>
+                    <div style={{ fontSize: '12px' }}>
+                      Out of {assignment.points}
+                    </div>
+                  </th>
+                ))
+              )}
+            </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="student-name">Jane Adams</td>
-              <td><input type="number" min="0" max="100" value="100" /></td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-            </tr>
-            <tr>
-              <td className="student-name">Christina Allen</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-            </tr>
-            <tr>
-              <td className="student-name">Jack Adams</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-            </tr>
-            <tr>
-              <td className="student-name">Jason Adams</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-              <td>100%</td>
-            </tr>
+          {students.map((student) => (
+  <tr key={student._id}>
+    <td className="student-name">
+      {(() => {
+        const user = users.find((user) => user._id === student.user);
+        return user ? `${user.firstName} ${user.lastName}` : 'Unknown Student';
+      })()}
+    </td>
+    {assignments.map((assignment) => {
+      const grade = grades.find((grade) => grade.student === student.user && grade.assignment === assignment._id);
+
+      console.log(`Grade for student ${student.user} (${student._id}) and assignment ${assignment.title} (${assignment._id}):`, grade ? grade.grade : 'N/A');
+      return (
+        <td key={`${student._id}-${assignment._id}`}>
+          {grade ? grade.grade : 'N/A'}
+        </td>
+      );
+    })}
+  </tr>
+))}
+
           </tbody>
         </table>
       </div>
-      </div>  
-    );
+    </div>
+  );
 }
