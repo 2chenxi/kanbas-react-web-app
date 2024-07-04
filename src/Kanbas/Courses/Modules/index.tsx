@@ -2,7 +2,7 @@ import ModulesControls from "./ModulesControls";
 import ModuleControlButtons from "./ModuleControlButtons";
 import { BsGripVertical } from "react-icons/bs";
 import LessonControlButtons from "./LessonControlButtons";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router";
 import * as db from "../../Database";
 import { addModule, editModule, updateModule, deleteModule }

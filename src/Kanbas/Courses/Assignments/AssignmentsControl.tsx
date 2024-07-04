@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaPlus } from "react-icons/fa6";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { IoEllipsisVertical } from "react-icons/io5";
