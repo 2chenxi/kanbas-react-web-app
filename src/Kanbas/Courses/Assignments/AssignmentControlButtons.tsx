@@ -16,7 +16,6 @@ export default function AssignmentControlButtons({
     <div className="d-flex align-items-center mt-1 me-2">
       <LessonControlButtons />
 
-      {/* Modal */}
       <div
         className="modal fade"
         id={`wd-delete-asm-dialog-${assignmentId}`}
@@ -61,7 +60,7 @@ export default function AssignmentControlButtons({
         </div>
       </div>
 
-      {/* Delete button */}
+      
       <FaTrash
         size={28}
         className="me-2 fs-1"

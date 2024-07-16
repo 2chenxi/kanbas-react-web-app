@@ -7,13 +7,32 @@ import { BsGripVertical } from "react-icons/bs";
 import { FaCaretDown } from "react-icons/fa";
 import { useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteAssignment } from "./reducer";
+import { useEffect } from "react";
+import { deleteAssignment, setAssignments } from "./reducer";
+import * as client from "./client";
 
 export default function Assignments() {
+  const removeAssignment = async (assignmentId: string) => {
+    await client.deleteAssignment(assignmentId);
+    dispatch(deleteAssignment(assignmentId));
+  };
+
   const { cid } = useParams();
-  const assignments = useSelector((state:any) => state.assignmentsReducer.assignments);
-  const courseAssignments = assignments.filter((assignment:any) => assignment.course === cid);
+  const {assignments} = useSelector((state:any) => state.assignmentsReducer);
   const dispatch = useDispatch();
+  useEffect(() => {
+    const fetchAssignments = async () => {
+      try {
+        const assignments = await client.findAssignmentsForCourse(cid as string);
+        dispatch(setAssignments(assignments));
+      } catch (error) {
+        console.error("Failed to fetch assignments:", error);
+      }
+    };
+
+    fetchAssignments();
+  }, [cid, dispatch]);
+
 
   return (
     <div id="wd-assignments">
@@ -35,10 +54,10 @@ export default function Assignments() {
             </div>
           </h3>
           <ul className="wd-assignment-list list-group rounded-0">
-            {courseAssignments.length === 0 ? (
+            {assignments.length === 0 ? (
               <div>No assignments found for this course.</div>
             ) : (
-              courseAssignments.map((assignment:any) => (
+              assignments.map((assignment:any) => (
                 <li
                   key={assignment._id}
                   className="wd-assignment-list-item list-group-item p-3 ps-1 d-flex align-items-center justify-content-between me-3"
@@ -60,7 +79,7 @@ export default function Assignments() {
                   </div>
                   <AssignmentControlButtons
                     assignmentId={assignment._id}
-                    deleteAssignment={(assignmentId) => { dispatch(deleteAssignment(assignmentId)); }}
+                    deleteAssignment={(assignmentId) => { removeAssignment(assignmentId); }}
                   />
                 </li>
               ))
