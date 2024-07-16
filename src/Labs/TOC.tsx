@@ -18,6 +18,8 @@ export default function Labs() {
     <li className="nav-item"><a id="wd-k" href="#/Kanbas" className="nav-link">Kanbas</a></li>
     <li className="nav-item"><a id="wd-github" href="https://github.com/2chenxi" target="_blank " rel="noopener noreferrer"
         className="nav-link">My GitHub</a></li>
+     <li className="nav-item"><a id="wd-github" href="https://github.com/2chenxi/kanbas-node-server-app" target="_blank " rel="noopener noreferrer"
+        className="nav-link">Server</a></li>
   </ul>
 
   );

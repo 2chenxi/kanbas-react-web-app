@@ -16,7 +16,7 @@ export default function Modules() {
   const { modules } = useSelector((state: any) => state.modulesReducer);
   const dispatch = useDispatch();
   const saveModule = async (module: any) => {
-    const status = await client.updateModule(module);
+    await client.updateModule(module);
     dispatch(updateModule(module));
   };
 
@@ -29,13 +29,19 @@ export default function Modules() {
     const newModule = await client.createModule(cid as string, module);
     dispatch(addModule(newModule));
   };
-  const fetchModules = async () => {
-    const modules = await client.findModulesForCourse(cid as string);
-    dispatch(setModules(modules));
-  };
+
   useEffect(() => {
+    const fetchModules = async () => {
+      try {
+        const modules = await client.findModulesForCourse(cid as string);
+        dispatch(setModules(modules));
+      } catch (error) {
+        console.error("Failed to fetch assignments:", error);
+      }
+    };
+
     fetchModules();
-  }, []);
+  }, [cid, dispatch]);
 
 
 
