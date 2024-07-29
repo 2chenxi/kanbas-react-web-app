@@ -37,7 +37,7 @@ export default function KanbasNavigation() {
         </Link>
       ))}
       
-      {/* complete styling the rest of the links */}
+
     </div>
     </div>
     

@@ -17,13 +17,13 @@ export default function Assignments() {
     dispatch(deleteAssignment(assignmentId));
   };
 
-  const { cid } = useParams();
+  const { courseNumber } = useParams();
   const {assignments} = useSelector((state:any) => state.assignmentsReducer);
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchAssignments = async () => {
       try {
-        const assignments = await client.findAssignmentsForCourse(cid as string);
+        const assignments = await client.findAssignmentsForCourse(courseNumber as string);
         dispatch(setAssignments(assignments));
       } catch (error) {
         console.error("Failed to fetch assignments:", error);
@@ -31,7 +31,7 @@ export default function Assignments() {
     };
 
     fetchAssignments();
-  }, [cid, dispatch]);
+  }, [courseNumber, dispatch]);
 
 
   return (
@@ -47,7 +47,7 @@ export default function Assignments() {
             </span>
             <div className="assignment-controls d-flex align-items-center">
               <div className="rounded-frame me-2">40% of Total</div>
-              <Link to={`/Kanbas/Courses/${cid}/Assignments/new`} className="me-2 fs-2">
+              <Link to={`/Kanbas/Courses/${courseNumber}/Assignments/new`} className="me-2 fs-2">
                 <BsPlus />
               </Link>
               <IoEllipsisVertical className="fs-4" />
@@ -66,7 +66,7 @@ export default function Assignments() {
                     <AssignmentIcon />
                     <div className="ms-3">
                       <Link
-                        to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}
+                        to={`/Kanbas/Courses/${courseNumber}/Assignments/${assignment._id}`}
                         className="wd-assignment-link ast-title"
                       >
                         {assignment.title}

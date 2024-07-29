@@ -13,12 +13,12 @@ export const deleteModule = async (moduleId: string) => {
   return response.data;
 };
 
-export const findModulesForCourse = async (courseId: string) => {
+export const findModulesForCourse = async (courseNumber: string) => {
   const response = await axios
-    .get(`${COURSES_API}/${courseId}/modules`);
+    .get(`${COURSES_API}/${courseNumber}/modules`);
   return response.data;
 };
-export const createModule = async (courseId: string, module: any) => {
-  const response = await axios.post( `${COURSES_API}/${courseId}/modules`, module );
+export const createModule = async (courseNumber: string, module: any) => {
+  const response = await axios.post( `${COURSES_API}/${courseNumber}/modules`, module );
   return response.data;
 };

@@ -11,7 +11,7 @@ import { setModules, addModule, editModule, updateModule, deleteModule }
 import { useSelector, useDispatch } from "react-redux";
 
 export default function Modules() {
-  const { cid } = useParams();
+  const { courseNumber } = useParams();
   const [moduleName, setModuleName] = useState("");
   const { modules } = useSelector((state: any) => state.modulesReducer);
   const dispatch = useDispatch();
@@ -26,14 +26,14 @@ export default function Modules() {
   };
 
   const createModule = async (module: any) => {
-    const newModule = await client.createModule(cid as string, module);
+    const newModule = await client.createModule(courseNumber as string, module);
     dispatch(addModule(newModule));
   };
 
   useEffect(() => {
     const fetchModules = async () => {
       try {
-        const modules = await client.findModulesForCourse(cid as string);
+        const modules = await client.findModulesForCourse(courseNumber as string);
         dispatch(setModules(modules));
       } catch (error) {
         console.error("Failed to fetch assignments:", error);
@@ -41,11 +41,11 @@ export default function Modules() {
     };
 
     fetchModules();
-  }, [cid, dispatch]);
+  }, [courseNumber, dispatch]);
 
 
 
-  console.log("Course ID from URL params:", cid);
+  console.log("Course ID from URL params:", courseNumber);
   console.log("All modules:", db.modules);
   console.log("Filtered modules:", modules);
 
@@ -53,7 +53,7 @@ export default function Modules() {
     <div className="wd-modules">
         <ModulesControls moduleName={moduleName} setModuleName={setModuleName}
         addModule={() => {
-          createModule({ name: moduleName, course: cid });
+          createModule({ name: moduleName, course: courseNumber });
           setModuleName("");
         }}
       />
@@ -64,7 +64,7 @@ export default function Modules() {
           <div>No modules found for this course.</div>
         ) : (
           modules
-          .filter((module:any) => module.course === cid)
+          .filter((module:any) => module.course === courseNumber)
           .map((module:any) => (
             <li
               key={module._id}

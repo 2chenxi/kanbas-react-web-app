@@ -15,14 +15,14 @@ export const deleteAssignment = async (assignmentId: string) => {
     return response.data;
   };
   
-export const createAssignment = async (courseId: string, assignment: any) => {
-    const response = await axios.post( `${COURSES_API}/${courseId}/assignments`, assignment );
+export const createAssignment = async (courseNumber: string, assignment: any) => {
+    const response = await axios.post( `${COURSES_API}/${courseNumber}/assignments`, assignment );
     return response.data;
   };
   
-export const findAssignmentsForCourse = async (courseId: string) => {
+export const findAssignmentsForCourse = async (courseNumber: string) => {
     const response = await axios
-      .get(`${COURSES_API}/${courseId}/assignments`);
+      .get(`${COURSES_API}/${courseNumber}/assignments`);
     return response.data;
   };
 
