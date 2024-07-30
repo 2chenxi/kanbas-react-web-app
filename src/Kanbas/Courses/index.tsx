@@ -9,8 +9,8 @@ import { FaAlignJustify } from "react-icons/fa";
 import PeopleTable from "./People";
 
 export default function Courses({ courses }: { courses: any[]; }) {
-  const { courseNumber } = useParams();
-  const course = courses.find((course) => course.number === courseNumber);
+  const { courseId  } = useParams();
+  const course = courses.find((course) => course._id === courseId );
   const { pathname } = useLocation();
     return (
 <div id="wd-courses">
